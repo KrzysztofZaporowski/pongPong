@@ -1,0 +1,3 @@
+C:/Users/krzys/CLionProjects/pongPong/cmake-build-debug/CMakeFiles/pongPong.dir
+C:/Users/krzys/CLionProjects/pongPong/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/krzys/CLionProjects/pongPong/cmake-build-debug/CMakeFiles/rebuild_cache.dir
