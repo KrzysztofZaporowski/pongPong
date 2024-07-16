@@ -11,6 +11,12 @@ link_directories(${SFML_ROOT}/lib)
 
 
 add_executable(pongPong main.cpp
+        Player.cpp
+        Player.h
+        GameControler.cpp
+        GameControler.h
+        Ball.cpp
+        Ball.h
 )
 
 target_link_libraries(pongPong

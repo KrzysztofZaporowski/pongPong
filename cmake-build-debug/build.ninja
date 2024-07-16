@@ -56,6 +56,27 @@ build CMakeFiles/pongPong.dir/main.cpp.obj: CXX_COMPILER__pongPong_unscanned_Deb
   OBJECT_DIR = CMakeFiles\pongPong.dir
   OBJECT_FILE_DIR = CMakeFiles\pongPong.dir
 
+build CMakeFiles/pongPong.dir/Player.cpp.obj: CXX_COMPILER__pongPong_unscanned_Debug C$:/Users/krzys/CLionProjects/pongPong/Player.cpp || cmake_object_order_depends_target_pongPong
+  DEP_FILE = CMakeFiles\pongPong.dir\Player.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/SFML/SFML-2.6.1/include
+  OBJECT_DIR = CMakeFiles\pongPong.dir
+  OBJECT_FILE_DIR = CMakeFiles\pongPong.dir
+
+build CMakeFiles/pongPong.dir/GameControler.cpp.obj: CXX_COMPILER__pongPong_unscanned_Debug C$:/Users/krzys/CLionProjects/pongPong/GameControler.cpp || cmake_object_order_depends_target_pongPong
+  DEP_FILE = CMakeFiles\pongPong.dir\GameControler.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/SFML/SFML-2.6.1/include
+  OBJECT_DIR = CMakeFiles\pongPong.dir
+  OBJECT_FILE_DIR = CMakeFiles\pongPong.dir
+
+build CMakeFiles/pongPong.dir/Ball.cpp.obj: CXX_COMPILER__pongPong_unscanned_Debug C$:/Users/krzys/CLionProjects/pongPong/Ball.cpp || cmake_object_order_depends_target_pongPong
+  DEP_FILE = CMakeFiles\pongPong.dir\Ball.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/SFML/SFML-2.6.1/include
+  OBJECT_DIR = CMakeFiles\pongPong.dir
+  OBJECT_FILE_DIR = CMakeFiles\pongPong.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target pongPong
@@ -64,7 +85,7 @@ build CMakeFiles/pongPong.dir/main.cpp.obj: CXX_COMPILER__pongPong_unscanned_Deb
 #############################################
 # Link the executable pongPong.exe
 
-build pongPong.exe: CXX_EXECUTABLE_LINKER__pongPong_Debug CMakeFiles/pongPong.dir/main.cpp.obj
+build pongPong.exe: CXX_EXECUTABLE_LINKER__pongPong_Debug CMakeFiles/pongPong.dir/main.cpp.obj CMakeFiles/pongPong.dir/Player.cpp.obj CMakeFiles/pongPong.dir/GameControler.cpp.obj CMakeFiles/pongPong.dir/Ball.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lsfml-graphics  -lsfml-window  -lsfml-system  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   LINK_PATH = -LC:/SFML/SFML-2.6.1/lib
