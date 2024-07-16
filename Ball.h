@@ -20,7 +20,7 @@ private:
     sf::CircleShape shape;
     sf::Vector2f velocity;
     sf::Vector2f position;
-    float velocityFactor;
+    float velocityFactor{};
     sf::Vector2f startingVelocity;
 };
 

@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <random>
 #include "SFML/Graphics.hpp"
-#include "Player.h"
 #include "GameControler.h"
 
 int main() {
@@ -17,9 +13,9 @@ int main() {
         {
             if (event.type == sf::Event::Closed)
                 window.close();
+            gameControler.updatePaused(event); // przeniosłem to do pętli z tymi evenami i działa
         }
 
-        gameControler.updatePaused(event);
         if (gameControler.isPaused()) continue;
         gameControler.bounceWindow();
         gameControler.checkForGoal();

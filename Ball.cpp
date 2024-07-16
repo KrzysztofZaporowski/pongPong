@@ -6,6 +6,7 @@ Ball::Ball(sf::Vector2f _velocity) {
     velocity = _velocity;
     velocityFactor = 1;
     startingVelocity = _velocity;
+    shape.setPosition(position); // dodałem tu żeby odrazu pozycje ustawił
 }
 
 void Ball::resetVelocity() {
@@ -22,7 +23,7 @@ void Ball::inverseYVelocity() {
 }
 
 void Ball::bounce(float bouncePosition) {
-    velocityFactor *= 1.1;
+    velocityFactor += 0.01; // jednak będzie się zwiększać o 0.01 bo dłuższa gra będzie
     velocity = sf::Vector2f (-velocityFactor * velocity.x, velocity.y);
     shape.setPosition(bouncePosition, shape.getPosition().y);
 }

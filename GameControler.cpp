@@ -25,11 +25,9 @@ void GameControler::bounceWindow() {
 void GameControler::collideWithPLayer() {
     if (ball.getCircleShape().getGlobalBounds().intersects(player1.getSprite().getGlobalBounds())) {
         ball.bounce(player1.getSprite().getPosition().x + player1.getSprite().getGlobalBounds().width);
-        //ball.resetVelocity(getRandomVelocity());
     }
     if (ball.getCircleShape().getGlobalBounds().intersects(player2.getSprite().getGlobalBounds())) {
         ball.bounce(player2.getSprite().getPosition().x - ball.getCircleShape().getRadius() * 2);
-        //ball.resetVelocity(getRandomVelocity());
     }
 
 }
