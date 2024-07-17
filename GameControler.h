@@ -19,6 +19,8 @@ public:
     void updatePaused(sf::Event);
     void checkForGoal();
     void draw();
+    void endGame();
+    void newGame();
 private:
     Player player1;
     Player player2;
@@ -28,6 +30,8 @@ private:
     sf::Vector2f player1StartingPosition;
     sf::Vector2f player2StartingPosition;
     sf::Vector2f getRandomVelocity();
+    int player1Points;
+    int player2Points;
 };
 
 

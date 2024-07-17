@@ -9,9 +9,11 @@ public:
     sf::Sprite &getSprite();
     Player();
     float getVelocity();
+    int getPoints();
 private:
     sf::Sprite sprite;
     float velocity;
+    int points;
 ;
 };
 

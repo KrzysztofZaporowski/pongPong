@@ -13,15 +13,17 @@ int main() {
         {
             if (event.type == sf::Event::Closed)
                 window.close();
-            gameControler.updatePaused(event); // przeniosłem to do pętli z tymi evenami i działa
+            gameControler.updatePaused(event);
         }
 
         if (gameControler.isPaused()) continue;
+        gameControler.updateBall();
+        gameControler.updatePlayer();
         gameControler.bounceWindow();
         gameControler.checkForGoal();
         gameControler.collideWithPLayer();
-        gameControler.updateBall();
-        gameControler.updatePlayer();
+        gameControler.endGame();
+        gameControler.newGame();
 
         window.clear();
         gameControler.draw();

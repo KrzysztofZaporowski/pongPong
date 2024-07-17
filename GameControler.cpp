@@ -14,6 +14,8 @@ GameControler::GameControler(sf::RenderWindow * _window) {
     ball = Ball(getRandomVelocity());
     window = _window;
     paused = false;
+    player1Points = player1.getPoints();
+    player2Points = player2.getPoints();
 }
 
 void GameControler::bounceWindow() {
@@ -37,7 +39,6 @@ void GameControler::updatePlayer() {
     sf::Vector2f velocityUp(0, -player1.getVelocity());
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && player1.getSprite().getPosition().y > 0){
         player1.getSprite().move(velocityUp);
-        //printf("%f - %f\n", player1.getSprite().getPosition().x, player1.getSprite().getPosition().y);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && player1.getSprite().getPosition().y < 520)
         player1.getSprite().move(velocityDown);
@@ -91,6 +92,8 @@ void GameControler::checkForGoal() {
         ball.resetVelocity();
         sf::Vector2f nextVelocity(-ball.getVelocity().x, ball.getVelocity().y);
         ball.setVelocity(nextVelocity);
+        player2Points += 1;
+        printf("Player1 %d : Player2 %d\n", player1Points, player2Points);
     }
     //Goal for player1
     if (ball.getCircleShape().getPosition().x + ball.getCircleShape().getRadius() * 2 > 1080) {
@@ -98,6 +101,8 @@ void GameControler::checkForGoal() {
         player2.getSprite().setPosition(player2StartingPosition);
         ball.setStartingPosition();
         ball.resetVelocity();
+        player1Points += 1;
+        printf("Player1 %d : Player2 %d\n", player1Points, player2Points);
     }
 }
 
@@ -106,3 +111,45 @@ void GameControler::draw() {
     window->draw(player2.getSprite());
     window->draw(ball.getCircleShape());
 }
+
+void GameControler::newGame() {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::N)){
+        player1.getSprite().setPosition(player1StartingPosition);
+        player2.getSprite().setPosition(player2StartingPosition);
+        ball.setStartingPosition();
+        ball = Ball(getRandomVelocity());
+        player1Points = player1.getPoints();
+        player2Points = player2.getPoints();
+        printf("New game.\n");
+    }
+}
+
+void GameControler::endGame() {
+    if (player1Points == 7){
+        paused = true;
+        printf("Congratulation player1. You won the game!\nFinal score: Player1 %d - Player2 %d\nGame will be restarted in 5 seconds\n"
+               , player1Points, player2Points);
+        player1.getSprite().setPosition(player1StartingPosition);
+        player2.getSprite().setPosition(player2StartingPosition);
+        ball.setStartingPosition();
+        ball = Ball(getRandomVelocity());
+        player1Points = player1.getPoints();
+        player2Points = player2.getPoints();
+        sf::sleep(sf::seconds(5));
+        paused = false;
+    }
+    else if (player2Points == 7){
+        paused = true;
+        printf("Congratulation player2. You won the game!\nFinal score: Player1 %d - Player2 %d\nGame will be restarted in 5 seconds\n"
+               , player1Points, player2Points);
+        player1.getSprite().setPosition(player1StartingPosition);
+        player2.getSprite().setPosition(player2StartingPosition);
+        ball.setStartingPosition();
+        ball = Ball(getRandomVelocity());
+        player1Points = player1.getPoints();
+        player2Points = player2.getPoints();
+        sf::sleep(sf::seconds(5));
+        paused = false;
+    }
+}
+
