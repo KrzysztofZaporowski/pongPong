@@ -160,10 +160,6 @@ void GameControler::saveGameState() {
         outFile << player1Points << std::endl;
         outFile << player2Points << std::endl;
 
-        // Save ball velocity
-        outFile << ball.getVelocity().x << std::endl;
-        outFile << ball.getVelocity().y << std::endl;
-
         outFile.close();
     } else {
         std::cerr << "Unable to open file for saving game state." << std::endl;
@@ -177,13 +173,6 @@ void GameControler::loadGameState() {
         inFile >> player1Points;
         inFile >> player2Points;
 
-        // Load ball velocity
-        sf::Vector2f loadedVelocity;
-        inFile >> loadedVelocity.x;
-        inFile >> loadedVelocity.y;
-
-        // Set ball velocity and reset the ball's position
-        ball.setVelocity(loadedVelocity);
         ball.resetVelocityFactor();
 
         inFile.close();
@@ -192,7 +181,5 @@ void GameControler::loadGameState() {
     }
 }
 
-bool GameControler::fileExists(const std::string & filename) {
-    std::ifstream file(filename);
-    return file.good();
-}
+
+

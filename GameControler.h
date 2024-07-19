@@ -24,7 +24,6 @@ public:
     void newGame();
     void saveGameState();
     void loadGameState();
-    bool fileExists(const std::string &);
 private:
     Player player1;
     Player player2;
