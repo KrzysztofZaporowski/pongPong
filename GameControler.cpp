@@ -89,7 +89,7 @@ void GameControler::checkForGoal() {
         player1.getSprite().setPosition(player1StartingPosition);
         player2.getSprite().setPosition(player2StartingPosition);
         ball.setStartingPosition();
-        ball.resetVelocity();
+        ball.resetVelocityFactor();
         sf::Vector2f nextVelocity(-ball.getVelocity().x, ball.getVelocity().y);
         ball.setVelocity(nextVelocity);
         player2Points += 1;
@@ -100,7 +100,7 @@ void GameControler::checkForGoal() {
         player1.getSprite().setPosition(player1StartingPosition);
         player2.getSprite().setPosition(player2StartingPosition);
         ball.setStartingPosition();
-        ball.resetVelocity();
+        ball.resetVelocityFactor();
         player1Points += 1;
         printf("Player1 %d : Player2 %d\n", player1Points, player2Points);
     }
@@ -184,10 +184,15 @@ void GameControler::loadGameState() {
 
         // Set ball velocity and reset the ball's position
         ball.setVelocity(loadedVelocity);
-        ball.resetVelocity();
+        ball.resetVelocityFactor();
 
         inFile.close();
     } else {
         std::cerr << "Unable to open file for loading game state." << std::endl;
     }
+}
+
+bool GameControler::fileExists(const std::string & filename) {
+    std::ifstream file(filename);
+    return file.good();
 }

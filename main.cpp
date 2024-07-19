@@ -12,9 +12,10 @@ int main() {
         sf::Event event{};
         while (window.pollEvent(event))
         {
-            if (event.type == sf::Event::Closed)
+            if (event.type == sf::Event::Closed){
                 gameControler.saveGameState();
                 window.close();
+            }
             gameControler.updatePaused(event);
         }
 

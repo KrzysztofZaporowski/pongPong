@@ -7,7 +7,7 @@ class Ball {
 public:
     Ball();
     Ball(sf::Vector2f);
-    void resetVelocity();
+    void resetVelocityFactor();
     sf::CircleShape & getCircleShape();
     void inverseYVelocity();
     void bounce(float);

@@ -9,7 +9,7 @@ Ball::Ball(sf::Vector2f _velocity) {
     shape.setPosition(position);
 }
 
-void Ball::resetVelocity() {
+void Ball::resetVelocityFactor() {
     velocityFactor = 1;
     velocity = startingVelocity;
 }
