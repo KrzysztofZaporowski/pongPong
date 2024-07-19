@@ -20,7 +20,7 @@ GameControler::GameControler(sf::RenderWindow * _window) {
 
 void GameControler::bounceWindow() {
     if (ball.getCircleShape().getPosition().y < 0 ||
-            ball.getCircleShape().getPosition().y + ball.getCircleShape().getRadius() * 2 > 720)
+        ball.getCircleShape().getPosition().y + ball.getCircleShape().getRadius() * 2 > 720)
         ball.inverseYVelocity();
 }
 
@@ -80,7 +80,7 @@ bool GameControler::isPaused() {
 
 void GameControler::updatePaused(sf::Event event) {
     if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::P)
-            paused = !paused;
+        paused = !paused;
 }
 
 void GameControler::checkForGoal() {
@@ -128,7 +128,7 @@ void GameControler::endGame() {
     if (player1Points == 7){
         paused = true;
         printf("Congratulation player1. You won the game!\nFinal score: Player1 %d - Player2 %d\nGame will be restarted in 5 seconds\n"
-               , player1Points, player2Points);
+                , player1Points, player2Points);
         player1.getSprite().setPosition(player1StartingPosition);
         player2.getSprite().setPosition(player2StartingPosition);
         ball.setStartingPosition();
@@ -141,7 +141,7 @@ void GameControler::endGame() {
     else if (player2Points == 7){
         paused = true;
         printf("Congratulation player2. You won the game!\nFinal score: Player1 %d - Player2 %d\nGame will be restarted in 5 seconds\n"
-               , player1Points, player2Points);
+                , player1Points, player2Points);
         player1.getSprite().setPosition(player1StartingPosition);
         player2.getSprite().setPosition(player2StartingPosition);
         ball.setStartingPosition();
@@ -153,3 +153,41 @@ void GameControler::endGame() {
     }
 }
 
+void GameControler::saveGameState() {
+    std::ofstream outFile("game_state.txt");
+    if (outFile.is_open()) {
+        // Save player points
+        outFile << player1Points << std::endl;
+        outFile << player2Points << std::endl;
+
+        // Save ball velocity
+        outFile << ball.getVelocity().x << std::endl;
+        outFile << ball.getVelocity().y << std::endl;
+
+        outFile.close();
+    } else {
+        std::cerr << "Unable to open file for saving game state." << std::endl;
+    }
+}
+
+void GameControler::loadGameState() {
+    std::ifstream inFile("game_state.txt");
+    if (inFile.is_open()) {
+        // Load player points
+        inFile >> player1Points;
+        inFile >> player2Points;
+
+        // Load ball velocity
+        sf::Vector2f loadedVelocity;
+        inFile >> loadedVelocity.x;
+        inFile >> loadedVelocity.y;
+
+        // Set ball velocity and reset the ball's position
+        ball.setVelocity(loadedVelocity);
+        ball.resetVelocity();
+
+        inFile.close();
+    } else {
+        std::cerr << "Unable to open file for loading game state." << std::endl;
+    }
+}

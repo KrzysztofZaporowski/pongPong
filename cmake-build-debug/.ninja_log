@@ -1,15 +1,13 @@
 # ninja log v5
 16	1076	7429544507000083	CMakeFiles/pongPong.dir/Ball.cpp.obj	3b937a0f94579ee9
-32	1537	7429530975826992	CMakeFiles/pongPong.dir/main.cpp.obj	17c83656bb23419a
+6	891	7431016320856447	CMakeFiles/pongPong.dir/main.cpp.obj	17c83656bb23419a
 20	1340	7426061468934167	CMakeFiles/SFML_Project.dir/main.cpp.obj	52e164b5ce9fa5cd
 40	1186	7429530972303517	CMakeFiles/pongPong.dir/Player.cpp.obj	f56acaf9f205c88b
-1899	2143	7429553167636508	pongPong.exe	2f2334bbaa20b0d3
-11	1899	7429553165297082	CMakeFiles/pongPong.dir/GameControler.cpp.obj	209b0f5a44e0a74a
-20	1653	7429554705552580	CMakeFiles/pongPong.dir/GameControler.cpp.obj	209b0f5a44e0a74a
-1654	2023	7429554709011898	pongPong.exe	2f2334bbaa20b0d3
-13	1517	7429556790204140	CMakeFiles/pongPong.dir/GameControler.cpp.obj	209b0f5a44e0a74a
-1519	1772	7429556792625116	pongPong.exe	2f2334bbaa20b0d3
-8	1503	7429557951267189	CMakeFiles/pongPong.dir/GameControler.cpp.obj	209b0f5a44e0a74a
-1504	1839	7429557954418341	pongPong.exe	2f2334bbaa20b0d3
-8	1449	7429560817887653	CMakeFiles/pongPong.dir/GameControler.cpp.obj	209b0f5a44e0a74a
-1450	1813	7429560821406968	pongPong.exe	2f2334bbaa20b0d3
+1307	1541	7431064789413520	pongPong.exe	efa05a514ac7d90e
+24	1307	7431064787125919	CMakeFiles/pongPong.dir/GameControler.cpp.obj	209b0f5a44e0a74a
+17	597	7431016317901608	CMakeFiles/pongPong.dir/Utils.cpp.obj	b6cf0e306168127c
+62	1287	7431095209447389	CMakeFiles/pongPong.dir/main.cpp.obj	17c83656bb23419a
+73	1486	7431095211445087	CMakeFiles/pongPong.dir/GameControler.cpp.obj	209b0f5a44e0a74a
+1487	1801	7431095214468092	pongPong.exe	2f2334bbaa20b0d3
+7	1631	7431098795415154	CMakeFiles/pongPong.dir/main.cpp.obj	17c83656bb23419a
+1632	1899	7431098797979744	pongPong.exe	2f2334bbaa20b0d3

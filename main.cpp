@@ -5,6 +5,7 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(1080, 720), "Ping Pong", sf::Style::Titlebar | sf::Style::Close);
 
     GameControler gameControler(&window);
+    gameControler.loadGameState();
 
     while (window.isOpen())
     {
@@ -12,6 +13,7 @@ int main() {
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
+                gameControler.saveGameState();
                 window.close();
             gameControler.updatePaused(event);
         }

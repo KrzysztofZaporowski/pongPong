@@ -6,6 +6,7 @@
 #include <iostream>
 #include <random>
 #include <vector>
+#include <fstream>
 
 
 class GameControler {
@@ -21,6 +22,8 @@ public:
     void draw();
     void endGame();
     void newGame();
+    void saveGameState();
+    void loadGameState();
 private:
     Player player1;
     Player player2;
