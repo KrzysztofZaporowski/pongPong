@@ -23,7 +23,10 @@ public:
     void endGame();
     void newGame();
     void saveGameState();
-    void loadGameState();
+    sf::Vector2f loadGameState();
+    sf::Vector2f startingVelocity();
+    bool fileExists(const std::string&);
+
 private:
     Player player1;
     Player player2;

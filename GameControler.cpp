@@ -11,7 +11,7 @@ GameControler::GameControler(sf::RenderWindow * _window) {
     player2StartingPosition = sf::Vector2f (1045, 310);
     player1 = Player(*texture, player1StartingPosition);
     player2 = Player(*texture, player2StartingPosition);
-    ball = Ball(getRandomVelocity());
+    ball = Ball(startingVelocity());
     window = _window;
     paused = false;
     player1Points = player1.getPoints();
@@ -160,26 +160,54 @@ void GameControler::saveGameState() {
         outFile << player1Points << std::endl;
         outFile << player2Points << std::endl;
 
+        // Save ball Velocity
+        outFile << ball.getVelocity().x << std::endl;
+        outFile << ball.getVelocity().y << std::endl;
+
         outFile.close();
     } else {
         std::cerr << "Unable to open file for saving game state." << std::endl;
     }
 }
 
-void GameControler::loadGameState() {
+sf::Vector2f GameControler::loadGameState() {
     std::ifstream inFile("game_state.txt");
+    sf::Vector2f loadedVelocity{0.f, 0.f};  // Initialize with default values
+
     if (inFile.is_open()) {
         // Load player points
         inFile >> player1Points;
         inFile >> player2Points;
 
+        // Load ball velocity
+        inFile >> loadedVelocity.x;
+        inFile >> loadedVelocity.y;
+
+        // Set ball velocity and reset the ball's position
+        ball.setVelocity(loadedVelocity);
         ball.resetVelocityFactor();
 
         inFile.close();
     } else {
         std::cerr << "Unable to open file for loading game state." << std::endl;
     }
+
+    return loadedVelocity;
 }
+
+sf::Vector2f GameControler::startingVelocity() {
+    if (fileExists("game_state.txt"))
+        return loadGameState();
+    else
+        return getRandomVelocity();
+}
+
+bool GameControler::fileExists(const std::string & filename) {
+    std::ifstream file(filename);
+    return file.good();
+}
+
+
 
 
 
